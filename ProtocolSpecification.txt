@@ -1,0 +1,44 @@
+Announcement for transferring records
+
++-----------------+----------------------------+
+| MsgType (8 Bit) | Amount of records (16 Bit) | 3 Byte
++-----------------+----------------------------+
+
+Record
+
++-------------+---------------+---------------+---------------+--------------+----------------+----------------+-------------------+--------------------------+
+| ID (32 Bit) | Year (16 Bit) | Month (8 Bit) | Day (8 Bit)   | Hour (8 Bit) | Minute (8 Bit) | Second (8 Bit) | Duration (32 Bit) | Amount of cells (16 Bit) | 17 Byte
++-------------+---------------+---------------+---------------+--------------+----------------+----------------+-------------------+--------------------------+
+
+Cell
+
++------------+------------+---------------+-------------------+-------------------+
+| X (16 Bit) | Y (16 Bit) | Sign (16 Bit) | ForeColor (8 Bit) | BackColor (8 Bit) | 8 Byte
++------------+------------+---------------+-------------------+-------------------+
+
+Response for rejecting a record
+
++-----------------+-----------------------------+----------------+
+| MsgType (8 Bit) | Rejected Record ID (32 Bit) | Reason (8 Bit) | 6 Byte
++-----------------+-----------------------------+----------------+
+
+
+Response for accepting a record
+
++-----------------+-----------------------------+
+| MsgType (8 Bit) | Accepted Record ID (32 Bit) | 5 Byte
++-----------------+-----------------------------+
+
+Message types:
+
+1 - Request for transferring records
+
+2 - Record rejected
+
+3 - Record accepted
+
+Reason types:
+
+1 - Rejection due to duplicate IDs
+
+2 - Rejection due to duplicate timestamps
